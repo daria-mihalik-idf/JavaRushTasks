@@ -5,13 +5,6 @@ package com.javarush.task.task11.task1109;
 
 Скрыть все внутренние переменные класса Cat и Dog.
 Также скрыть все методы, кроме тех, с помощью которых эти классы взаимодействуют друг с другом.
-
-Требования:
-1. Переменные класса Cat должны быть скрыты.
-2. Переменные класса Dog должны быть скрыты.
-3. Методы класса Cat должы быть скрыты.
-4. Методы класса Dog должы быть скрыты.
-5. Методы, с помощью которых классы Cat и Dog взаимодействуют друг с другом, должны быть публичными.
 */
 
 public class Solution {
@@ -22,48 +15,48 @@ public class Solution {
         cat.isDogNear(dog);
         dog.isCatNear(cat);
     }
+}
 
-    public static class Cat {
-        private String name;
-        private int speed;
+class Cat {
+    private String name;
+    private int speed;
 
-        public Cat(String name, int speed) {
-            this.name = name;
-            this.speed = speed;
-        }
-
-        private String getName() {
-            return name;
-        }
-
-        private int getSpeed() {
-            return speed;
-        }
-
-        public boolean isDogNear(Dog dog) {
-            return this.speed > dog.getSpeed();
-        }
+    public Cat(String name, int speed) {
+        this.name = name;
+        this.speed = speed;
     }
 
-    public static class Dog {
-        private String name;
-        private int speed;
+    private String getName() {
+        return name;
+    }
 
-        public Dog(String name, int speed) {
-            this.name = name;
-            this.speed = speed;
-        }
+    public int getSpeed() {
+        return speed;
+    }
 
-        private String getName() {
-            return name;
-        }
+    public boolean isDogNear(Dog dog) {
+        return this.speed > dog.getSpeed();
+    }
+}
 
-        private int getSpeed() {
-            return speed;
-        }
+class Dog {
+    private String name;
+    private int speed;
 
-        public boolean isCatNear(Cat cat) {
-            return this.speed > cat.getSpeed();
-        }
+    public Dog(String name, int speed) {
+        this.name = name;
+        this.speed = speed;
+    }
+
+    private String getName() {
+        return name;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public boolean isCatNear(Cat cat) {
+        return this.speed > cat.getSpeed();
     }
 }
